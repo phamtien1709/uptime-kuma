@@ -1,11 +1,11 @@
 <template>
     <div>
         <div v-if="$root.isMobile" class="shadow-box mb-3">
-            <router-link to="/manage-status-page" class="nav-link">
+            <router-link to="/kuma-manage-status-page" class="nav-link">
                 <font-awesome-icon icon="stream" />
                 {{ $t("Status Pages") }}
             </router-link>
-            <router-link to="/maintenance" class="nav-link">
+            <router-link to="/kuma-maintenance" class="nav-link">
                 <font-awesome-icon icon="wrench" />
                 {{ $t("Maintenance") }}
             </router-link>
@@ -18,7 +18,7 @@
         <div class="shadow-box shadow-box-settings">
             <div class="row">
                 <div v-if="showSubMenu" class="settings-menu col-lg-3 col-md-5">
-                    <router-link v-for="(item, key) in subMenus" :key="key" :to="`/settings/${key}`">
+                    <router-link v-for="(item, key) in subMenus" :key="key" :to="`/kuma-settings/${key}`">
                         <div class="menu-item">
                             {{ item.title }}
                         </div>
@@ -144,7 +144,7 @@ export default {
          */
         loadGeneralPage() {
             if (!this.currentPage && !this.$root.isMobile) {
-                this.$router.push("/settings/general");
+                this.$router.push("/kuma-settings/general");
             }
         },
 

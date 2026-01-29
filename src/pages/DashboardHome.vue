@@ -62,7 +62,7 @@
                             :class="{ 'shadow-box': $root.windowWidth <= 550 }"
                         >
                             <td class="name-column">
-                                <router-link :to="`/dashboard/${beat.monitorID}`">
+                                <router-link :to="`/kuma-dashboard/${beat.monitorID}`">
                                     {{ $root.monitorList[beat.monitorID]?.name }}
                                 </router-link>
                             </td>

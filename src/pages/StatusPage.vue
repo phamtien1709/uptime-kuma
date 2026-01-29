@@ -6,7 +6,7 @@
                 <div class="my-3">
                     <label for="slug" class="form-label">{{ $t("Slug") }}</label>
                     <div class="input-group">
-                        <span id="basic-addon3" class="input-group-text">/status/</span>
+                        <span id="basic-addon3" class="input-group-text">/kuma-status/</span>
                         <input id="slug" v-model="config.slug" type="text" class="form-control" />
                     </div>
                 </div>
@@ -279,7 +279,7 @@
                         {{ $t("Edit Status Page") }}
                     </button>
 
-                    <a href="/manage-status-page" class="btn btn-primary mb-2">
+                    <a href="/kuma-manage-status-page" class="btn btn-primary mb-2">
                         <font-awesome-icon icon="tachometer-alt" />
                         {{ $t("Go to Dashboard") }}
                     </a>
@@ -525,7 +525,7 @@
                     </div>
                     <div v-else class="text-center">
                         {{ $t("No monitors available.") }}
-                        <router-link to="/add">{{ $t("Add one") }}</router-link>
+                        <router-link to="/kuma-add">{{ $t("Add one") }}</router-link>
                     </div>
                 </div>
             </div>
@@ -1106,7 +1106,7 @@ export default {
 
                         setTimeout(() => {
                             this.loading = false;
-                            location.href = "/status/" + this.config.slug;
+                            location.href = "/kuma-status/" + this.config.slug;
                         }, time);
                     } else {
                         this.loading = false;
@@ -1177,7 +1177,7 @@ export default {
          * @returns {void}
          */
         discard() {
-            location.href = "/status/" + this.slug;
+            location.href = "/kuma-status/" + this.slug;
         },
 
         /**

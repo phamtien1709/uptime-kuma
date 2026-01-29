@@ -191,6 +191,25 @@ const { chartSocketHandler } = require("./socket-handlers/chart-socket-handler")
 
 app.use(express.json());
 
+// Base path when served under nginx (e.g. m.sankakuapi.com/uptime) – set UPTIME_KUMA_BASE_PATH=/uptime
+let serverBasePath = (process.env.UPTIME_KUMA_BASE_PATH || "").trim().replace(/\/$/, "") || "";
+if (serverBasePath && !serverBasePath.startsWith("/")) {
+    serverBasePath = "/" + serverBasePath;
+}
+
+if (serverBasePath) {
+    app.use(function (req, res, next) {
+        const [path, query] = req.url.split("?");
+        const qs = query ? "?" + query : "";
+        if (path === serverBasePath) {
+            req.url = "/" + qs;
+        } else if (path.startsWith(serverBasePath + "/")) {
+            req.url = (path.slice(serverBasePath.length) || "/") + qs;
+        }
+        next();
+    });
+}
+
 // Global Middleware
 app.use(function (req, res, next) {
     if (!disableFrameSameOrigin) {
@@ -258,9 +277,9 @@ let needSetup = false;
             let slug = StatusPage.domainMappingList[hostname];
             await StatusPage.handleStatusPageResponse(response, server.indexHTML, slug);
         } else if (uptimeKumaEntryPage && uptimeKumaEntryPage.startsWith("statusPage-")) {
-            response.redirect("/status/" + uptimeKumaEntryPage.replace("statusPage-", ""));
+            response.redirect(serverBasePath + "/kuma-status/" + uptimeKumaEntryPage.replace("statusPage-", ""));
         } else {
-            response.redirect("/dashboard");
+            response.redirect(serverBasePath + "/kuma-dashboard");
         }
     });
 

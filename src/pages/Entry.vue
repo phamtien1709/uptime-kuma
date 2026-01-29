@@ -33,15 +33,15 @@ export default {
                 // Dev only. For production, the logic is in the server side
                 const entryPage = res.entryPage;
                 if (entryPage?.startsWith("statusPage-")) {
-                    this.$router.push("/status/" + entryPage.replace("statusPage-", ""));
+                    this.$router.push("/kuma-status/" + entryPage.replace("statusPage-", ""));
                 } else {
                     // should the old setting style still exist here?
-                    this.$router.push("/dashboard");
+                    this.$router.push("/kuma-dashboard");
                 }
             } else if (res.type === "setup-database") {
-                this.$router.push("/setup-database");
+                this.$router.push("/kuma-setup-database");
             } else {
-                this.$router.push("/dashboard");
+                this.$router.push("/kuma-dashboard");
             }
         } catch (e) {
             alert("Cannot connect to the backend server. Did you start the backend server? (npm run start-server-dev)");

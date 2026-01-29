@@ -124,7 +124,7 @@ export default {
             });
 
             socket.on("setup", (monitorID, data) => {
-                this.$router.push("/setup");
+                this.$router.push("/kuma-setup");
             });
 
             socket.on("autoLogin", (monitorID, data) => {

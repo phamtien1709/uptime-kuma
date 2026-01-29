@@ -2483,7 +2483,7 @@ export default {
         },
 
         isAdd() {
-            return this.$route.path === "/add";
+            return this.$route.path === "/kuma-add";
         },
 
         isClone() {
@@ -3207,7 +3207,7 @@ message HealthCheckResponse {
                             await this.startParentGroupMonitor();
                         }
                         this.processing = false;
-                        this.$router.push("/dashboard/" + res.monitorID);
+                        this.$router.push("/kuma-dashboard/" + res.monitorID);
                     } else {
                         this.processing = false;
                     }

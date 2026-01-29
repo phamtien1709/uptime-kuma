@@ -22,7 +22,7 @@
                     <div class="mb-4">
                         <label for="slug" class="form-label">{{ $t("Slug") }}</label>
                         <div class="input-group">
-                            <span id="basic-addon3" class="input-group-text">/status/</span>
+                            <span id="basic-addon3" class="input-group-text">/kuma-status/</span>
                             <input
                                 id="slug"
                                 v-model="slug"
@@ -91,7 +91,7 @@ export default {
                 this.processing = false;
 
                 if (res.ok) {
-                    location.href = "/status/" + res.slug + "?edit";
+                    location.href = "/kuma-status/" + res.slug + "?edit";
                 } else {
                     if (res.msg.includes("UNIQUE constraint")) {
                         this.$root.toastError("The slug is already taken. Please choose another slug.");

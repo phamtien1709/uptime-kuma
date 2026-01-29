@@ -6,7 +6,7 @@
             </h1>
 
             <div>
-                <router-link to="/add-status-page" class="btn btn-primary mb-3">
+                <router-link to="/kuma-add-status-page" class="btn btn-primary mb-3">
                     <font-awesome-icon icon="plus" />
                     {{ $t("New Status Page") }}
                 </router-link>
@@ -25,13 +25,13 @@
                     <a
                         v-for="statusPage in $root.statusPageList"
                         :key="statusPage.slug"
-                        :href="'/status/' + statusPage.slug"
+                        :href="'/kuma-status/' + statusPage.slug"
                         class="item"
                     >
                         <img :src="icon(statusPage.icon)" alt class="logo me-2" />
                         <div class="info">
                             <div class="title">{{ statusPage.title }}</div>
-                            <div class="slug">/status/{{ statusPage.slug }}</div>
+                            <div class="slug">/kuma-status/{{ statusPage.slug }}</div>
                         </div>
                         <div class="actions">
                             <button

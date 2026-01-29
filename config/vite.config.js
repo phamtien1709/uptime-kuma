@@ -9,8 +9,13 @@ const postcssRTLCSS = require("postcss-rtlcss");
 
 const viteCompressionFilter = /\.(js|mjs|json|css|html|svg)$/i;
 
+// Base path when served under nginx (e.g. m.sankakuapi.com/uptime) – set UPTIME_KUMA_BASE_PATH=/uptime at build time
+const basePath = (process.env.UPTIME_KUMA_BASE_PATH || "").trim();
+const baseNormalized = basePath ? "/" + basePath.replace(/^\/|\/$/g, "") + "/" : "/";
+
 // https://vitejs.dev/config/
 export default defineConfig({
+    base: baseNormalized === "//" ? "/" : baseNormalized,
     server: {
         port: 3000,
     },

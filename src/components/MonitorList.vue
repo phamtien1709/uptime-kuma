@@ -102,7 +102,7 @@
         >
             <div v-if="Object.keys($root.monitorList).length === 0" class="text-center mt-3">
                 {{ $t("No Monitors, please") }}
-                <router-link to="/add">{{ $t("add one") }}</router-link>
+                <router-link to="/kuma-add">{{ $t("add one") }}</router-link>
             </div>
 
             <MonitorListItem

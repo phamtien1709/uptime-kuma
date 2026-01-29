@@ -582,11 +582,11 @@ export default {
         },
 
         isEdit() {
-            return this.$route.path.startsWith("/maintenance/edit");
+            return this.$route.path.startsWith("/kuma-maintenance/edit");
         },
 
         isClone() {
-            return this.$route.path.startsWith("/maintenance/clone");
+            return this.$route.path.startsWith("/kuma-maintenance/clone");
         },
 
         /**
@@ -835,7 +835,7 @@ export default {
                                 this.$root.toastRes(res);
                                 this.processing = false;
                                 this.$root.getMaintenanceList();
-                                this.$router.push("/maintenance");
+                                this.$router.push("/kuma-maintenance");
                             });
                         });
                     } else {
@@ -851,7 +851,7 @@ export default {
                                 this.processing = false;
                                 this.$root.toastRes(res);
                                 this.init();
-                                this.$router.push("/maintenance");
+                                this.$router.push("/kuma-maintenance");
                             });
                         });
                     } else {

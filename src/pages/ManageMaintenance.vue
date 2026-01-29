@@ -6,7 +6,7 @@
             </h1>
 
             <div>
-                <router-link to="/add-maintenance" class="btn btn-primary mb-3">
+                <router-link to="/kuma-add-maintenance" class="btn btn-primary mb-3">
                     <font-awesome-icon icon="plus" />
                     {{ $t("Schedule Maintenance") }}
                 </router-link>
@@ -56,7 +56,7 @@
                             </button>
 
                             <router-link
-                                :to="'/maintenance/clone/' + item.id"
+                                :to="'/kuma-maintenance/clone/' + item.id"
                                 class="btn btn-normal"
                                 :aria-label="$t('ariaCloneMaintenance')"
                             >
@@ -65,7 +65,7 @@
                             </router-link>
 
                             <router-link
-                                :to="'/maintenance/edit/' + item.id"
+                                :to="'/kuma-maintenance/edit/' + item.id"
                                 class="btn btn-normal"
                                 :aria-label="$t('ariaEditMaintenance')"
                             >
@@ -180,7 +180,7 @@ export default {
             this.$root.deleteMaintenance(this.selectedMaintenanceID, (res) => {
                 this.$root.toastRes(res);
                 if (res.ok) {
-                    this.$router.push("/maintenance");
+                    this.$router.push("/kuma-maintenance");
                 }
             });
         },

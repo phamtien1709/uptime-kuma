@@ -215,7 +215,7 @@ export default {
         this.info = res.data;
 
         if (this.info && this.info.needSetup === false) {
-            location.href = "/setup";
+            location.href = "/kuma-setup";
         } else {
             this.show = true;
         }
@@ -243,7 +243,7 @@ export default {
                 let res = await axios.get("/setup-database-info");
                 if (res.data && res.data.needSetup === false) {
                     this.show = false;
-                    location.href = "/setup";
+                    location.href = "/kuma-setup";
                 } else {
                     if (res.data) {
                         this.info = res.data;

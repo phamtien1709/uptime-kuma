@@ -100,11 +100,11 @@
                         <font-awesome-icon icon="play" />
                         {{ $t("Resume") }}
                     </button>
-                    <router-link :to="'/edit/' + monitor.id" class="btn btn-normal">
+                    <router-link :to="'/kuma-edit/' + monitor.id" class="btn btn-normal">
                         <font-awesome-icon icon="edit" />
                         {{ $t("Edit") }}
                     </router-link>
-                    <router-link :to="'/clone/' + monitor.id" class="btn btn-normal">
+                    <router-link :to="'/kuma-clone/' + monitor.id" class="btn btn-normal">
                         <font-awesome-icon icon="clone" />
                         {{ $t("Clone") }}
                     </router-link>
@@ -688,7 +688,7 @@ export default {
             this.$root.deleteMonitor(this.monitor.id, this.deleteChildrenMonitors, (res) => {
                 this.$root.toastRes(res);
                 if (res.ok) {
-                    this.$router.push("/dashboard");
+                    this.$router.push("/kuma-dashboard");
                 }
             });
         },
